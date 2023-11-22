@@ -13,7 +13,7 @@ module OpenWeather
     end
 
     def geocode(location)
-      params = { q: location }
+      params = { q: location, limit: 1 }
       request('geo/1.0/direct', params: params)
     end
 
