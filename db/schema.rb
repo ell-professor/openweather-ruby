@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_22_130400) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_22_130808) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "postgis"
+
+  create_table "air_pollution_datapoints", force: :cascade do |t|
+    t.integer "air_quality_index", limit: 2, null: false
+    t.float "co"
+    t.float "no"
+    t.float "no2"
+    t.float "o3"
+    t.float "so2"
+    t.float "pm2_5"
+    t.float "pm10"
+    t.float "nh3"
+    t.datetime "recorded_at", null: false
+    t.bigint "location_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["location_id"], name: "index_air_pollution_datapoints_on_location_id"
+  end
 
   create_table "locations", force: :cascade do |t|
     t.string "name", null: false
@@ -30,5 +47,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_22_130400) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "air_pollution_datapoints", "locations"
   add_foreign_key "locations", "states"
 end
