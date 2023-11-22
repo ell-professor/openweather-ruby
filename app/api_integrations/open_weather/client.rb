@@ -1,6 +1,6 @@
 module OpenWeather
   class Client
-    BASE_URL = 'http://api.openweathermap.org/'
+    BASE_URL = 'http://api.openweathermap.org/'.freeze
 
     def air_pollution_data(lat, lon)
       params = { lat: lat, lon: lon }
@@ -20,7 +20,7 @@ module OpenWeather
     private
 
     def request(endpoint, action: :get, params: {})
-      response = RestClient::Request.execute(url: BASE_URL.concat(endpoint), method: action, headers: { params: params.merge(appid: appid) })
+      response = RestClient::Request.execute(url: BASE_URL + endpoint, method: action, headers: { params: params.merge(appid: appid) })
       JSON.parse(response.body)
     
     rescue StandardError => e

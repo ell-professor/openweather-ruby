@@ -4,7 +4,7 @@ module OpenWeather
 
     # Placeholder for custom errors
     def self.map_error(e)
-      raise custom_error(response, e) || e
+      raise custom_error(e) || e
     end
 
     # TODO: Implement
