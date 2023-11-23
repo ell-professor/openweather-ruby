@@ -22,3 +22,7 @@
 every 1.hour do
   runner "ScheduleWeatherDataImportsJob.perform_later"
 end
+
+every 1.day, at: '1am' do
+  runner "ScheduleCalculateStatsJob.perform_later"
+end

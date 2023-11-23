@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_23_115302) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_23_132443) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "postgis"
@@ -30,6 +30,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_23_115302) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["location_id"], name: "index_air_pollution_datapoints_on_location_id"
+  end
+
+  create_table "air_pollution_stats", force: :cascade do |t|
+    t.float "average_aqi", null: false
+    t.integer "number_of_datapoints", null: false
+    t.integer "month", limit: 2, null: false
+    t.integer "year", null: false
+    t.bigint "location_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["location_id", "month", "year"], name: "index_air_pollution_stats_on_location_id_and_month_and_year", unique: true
+    t.index ["location_id"], name: "index_air_pollution_stats_on_location_id"
   end
 
   create_table "delayed_jobs", force: :cascade do |t|
@@ -63,5 +75,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_23_115302) do
   end
 
   add_foreign_key "air_pollution_datapoints", "locations"
+  add_foreign_key "air_pollution_stats", "locations"
   add_foreign_key "locations", "states"
 end
