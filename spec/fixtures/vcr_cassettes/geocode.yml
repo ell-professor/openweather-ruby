@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.openweathermap.org/geo/1.0/direct?appid=0da1fe88335aa8ea49a44b6575c6e166&limit=1&q=Delhi
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin22 arm64) ruby/2.7.8p225
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - api.openweathermap.org
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - openresty
+      Date:
+      - Fri, 24 Nov 2023 17:27:31 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '656'
+      Connection:
+      - keep-alive
+      X-Cache-Key:
+      - "/geo/1.0/direct?limit=1&q=delhi"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        W3sibmFtZSI6IkRlbGhpIiwibG9jYWxfbmFtZXMiOnsiZW4iOiJEZWxoaSIsIm9jIjoiRGVsaGkiLCJ1ayI6ItCU0LXQu9GWIiwia3UiOiJEZWxow64iLCJ0aCI6IuC5gOC4lOC4peC4tSIsImFyIjoi2K/ZhNmH2YoiLCJ0YSI6IuCupOCuv+CusuCvjeCusuCuvyIsImtvIjoi642466asIiwibWwiOiLgtKHgtYbgtb3gtLngtL8iLCJteSI6IuGAkuGAseGAnOGAruGAmeGAvOGAreGAr+GAtyIsImhpIjoi4KSm4KS/4KSy4KWN4KSy4KWAIiwiY3MiOiJEaWxsw60iLCJoZSI6IteT15zXlNeZIiwibXMiOiJEZWxoaSIsImphIjoi44OH44Oq44O8IiwiZnIiOiJEZWxoaSIsImtuIjoi4LKm4LOG4LK54LKy4LK/IiwiemgiOiLlvrfph4wiLCJ0ZSI6IuCwouCwv+CwsuCxjeCwsuCxgCIsImRlIjoiRGVsaGkiLCJydSI6ItCU0LXQu9C4IiwiZmEiOiLYr9mH2YTbjCIsImVvIjoiRGVsaGlvIiwidXIiOiLYr9uB2YTbjCIsImx2IjoiRGVsaSIsImVsIjoizpTOtc67z4fOryIsInB0IjoiRGVsaSIsImJuIjoi4Kam4Ka/4Kay4KeN4Kay4Ka/IiwiZXMiOiJEZWxoaSIsIm5lIjoi4KSm4KS/4KSy4KWN4KSy4KWAIiwicGEiOiLgqKbgqL/gqbHgqLLgqYAifSwibGF0IjoyOC42NTE3MTc4LCJsb24iOjc3LjIyMTkzODgsImNvdW50cnkiOiJJTiIsInN0YXRlIjoiRGVsaGkifV0=
+  recorded_at: Fri, 24 Nov 2023 17:27:32 GMT
+recorded_with: VCR 6.2.0

@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+puts "Seeding locations... ."
+location_seed_file = Rails.root.join('db', 'seeds', 'locations.yml')
+locations = YAML::load_file(location_seed_file)
+
+locations.each do |location|
+  Importers::Location.new(location).call
+  puts "Created #{location}"
+end
+
+puts "Locations created successfully... ."
